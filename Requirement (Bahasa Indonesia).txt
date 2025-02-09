@@ -1,0 +1,73 @@
+Install
+ 
+SQL Server 2022 
+Microsoft ODBC Driver 18 for SQL Server
+SQL Server Management Studio 20
+
+Buka SQL Server Management Studio 20 pilih server local
+Pilih new query isi dengan query berikut
+
+##########################################################
+
+CREATE DATABASE DemoDB
+
+USE DemoDB
+
+CREATE TABLE MsEmail(
+ IdEmail NVARCHAR(36) PRIMARY KEY NOT NULL DEFAULT NEWID(),
+ Title NVARCHAR(100) NOT NULL,
+ Content NVARCHAR(max) NOT NULL,
+ IsSpam BIT,
+ Time DATETIME2(7),
+ ToEmail NVARCHAR(36),
+ FromEmail NVARCHAR(36),
+ IsProcessed BIT
+)
+
+##########################################################
+
+Buka Sql Server Configuration Manager
+
+Klik SQL Server Services
+ 
+Klik kanan pada SQL Server Agent (SQLEXPRESS) -> Properties -> Service
+Ubah Start Mode menjadi Manual / Automatic -> Apply -> Start
+
+Klik kanan pada SQL Server Browser -> Properties -> Service
+Ubah Start Mode menjadi Manual / Automatic -> Apply -> Start
+
+Pilih Menu SQL Server Network Configuration (Yang tidak ada 32bit)
+Double klik Protocols for SQLEXPRESS
+Nyalakan TCP/IP -> Enable
+
+KONFIGURASI DATABASE SELESAI
+
+Klik kanan pada File Project AI
+Klik open in terminal
+
+masukkan prompt : 
+
+env/Scripts/activate
+pip install flask
+pip install flask-cors
+pip install sqlalchemy
+pip install flask-sqlalchemy
+pip install sqlalchemy-pyodbc-mssql
+pip install flask flask_sqlalchemy pyodbc
+pip install Flask-Migrate
+pip install pyodbc
+pip install scikit-learn
+
+python app.py
+
+CTRL + Klik kiri pada link localhost yang diberikan atau buka http://127.0.0.1:5000/
+
+Buka extention Chrome lalu pilih Developer Mode dan pilih Load Unpacked
+Pilih file "Extention"
+Nyalakan extentionnya
+
+Vidio menyalakan extention terlampir 
+NOTE Vidio sebenarnya dibuat untuk pembuatan laporan sehingga menggunakan Bahasa sehari-hari
+
+
+
